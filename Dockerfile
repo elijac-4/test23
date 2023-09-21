@@ -6,7 +6,7 @@ COPY package.json /app
 
 RUN npm install
 
-RUN mkdir /app/wallet
+RUN mkdir /app/wallet && chmod 777 /app/wallet
 
 COPY . .
 
