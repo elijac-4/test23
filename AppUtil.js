@@ -20,6 +20,9 @@ exports.buildCCPOrg1 = () => {
 
 
     let contents = fs.readFileSync(ccpPath, 'utf8')
+
+    console.log(contents)
+	
     // DO THIS FOR DOCKER ON WINDOWS
     //contents = contents.replace(/localhost/g, 'host.docker.internal');
 
