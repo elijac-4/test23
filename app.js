@@ -25,7 +25,7 @@ async function main() {
 
 		// build an instance of the fabric ca services client based on
 		// the information in the network configuration
-		const caClient = buildCAClient(FabricCAServices, ccp, 'ca.org1.example.com');
+		const caClient = buildCAClient(FabricCAServices, ccp, 'blockchain-project2-org1ca-ca.bbbt-dev-eu-de-1-bx2-4x16-35ff69903c9517ee3126f97460024740-0000.eu-de.containers.appdomain.cloud:443');
 
 		// setup the wallet to hold the credentials of the application user
 		const wallet = await buildWallet(Wallets, walletPath);
