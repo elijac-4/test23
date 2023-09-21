@@ -6,6 +6,8 @@ COPY package.json /app
 
 RUN npm install
 
+RUN mkdir /app/wallet
+
 COPY . .
 
 EXPOSE 3000
