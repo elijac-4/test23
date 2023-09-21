@@ -1,6 +1,6 @@
 'use strict';
 
-
+/*
 const { Gateway, Wallets } = require('fabric-network');
 const FabricCAServices = require('fabric-ca-client');
 const path = require('path');
@@ -125,7 +125,18 @@ async function main() {
 		console.error(`******** FAILED to run the application: ${error}`);
 		process.exit(1);
 	}
-}
+}*/
 
 
-main();
+//main();
+
+const express = require('express')
+const app = express()
+const port = 3000
+app.get('/', (req, res) => {
+	res.send("'hello world!'")
+})
+
+app.listen(port, () => {
+	console.log("listening on port 3000")
+})
