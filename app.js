@@ -1,6 +1,6 @@
 'use strict';
 
-/*
+
 const { Gateway, Wallets } = require('fabric-network');
 const FabricCAServices = require('fabric-ca-client');
 const path = require('path');
@@ -125,7 +125,7 @@ async function main() {
 		console.error(`******** FAILED to run the application: ${error}`);
 		process.exit(1);
 	}
-}*/
+}
 
 
 //main();
