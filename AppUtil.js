@@ -36,6 +36,7 @@ exports.buildCCPOrg1 = () => {
 	const ccp = JSON.parse(contents);
 
 	console.log(`Loaded the network configuration located at ${ccpPath}`);
+	console.log(ccp);
 	return ccp;
 };
 
