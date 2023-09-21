@@ -128,7 +128,7 @@ async function main() {
 }
 
 
-//main();
+main();
 
 const express = require('express')
 const app = express()
