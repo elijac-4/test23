@@ -10,7 +10,7 @@ const { buildCCPOrg1, buildWallet } = require('./AppUtil.js');
 const channelName = process.env.CHANNEL_NAME || 'mychannel';
 const chaincodeName = process.env.CHAINCODE_NAME || 'basic';
 
-const mspOrg1 = 'Org1MSP';
+const mspOrg1 = 'org1msp';
 const walletPath = path.join(__dirname, 'wallet');
 //const org1UserId = 'javascriptAppUser';
 const org1UserId = 'admin';
