@@ -9,6 +9,9 @@ const { buildCCPOrg1, buildWallet } = require('./AppUtil.js');
 
 const channelName = process.env.CHANNEL_NAME || 'mychannel';
 const chaincodeName = process.env.CHAINCODE_NAME || 'basic';
+const asLocalHost = process.env.LOCALHOST ? process.env.LOCALHOST === 'true' : false;
+
+console.log(`asLocalHost: ${asLocalHost}`);
 
 const mspOrg1 = 'org1msp';
 const walletPath = path.join(__dirname, 'wallet');
@@ -51,7 +54,7 @@ async function main() {
 			await gateway.connect(ccp, {
 				wallet,
 				identity: org1UserId,
-				discovery: { enabled: true, asLocalhost: true } // using asLocalhost as this gateway is using a fabric network deployed locally
+				discovery: { enabled: true, asLocalhost: asLocalHost } // using asLocalhost as this gateway is using a fabric network deployed locally
 			});
 
 			// Build a network instance based on the channel where the smart contract is deployed
@@ -60,6 +63,7 @@ async function main() {
 			// Get the contract from the network.
 			const contract = network.getContract(chaincodeName);
 
+			/*
 			// Initialize a set of asset data on the channel using the chaincode 'InitLedger' function.
 			// This type of transaction would only be run once by an application the first time it was started after it
 			// deployed the first time. Any updates to the chaincode deployed later would likely not need to run
@@ -117,6 +121,7 @@ async function main() {
 			console.log('\n--> Evaluate Transaction: ReadAsset, function returns "asset1" attributes');
 			result = await contract.evaluateTransaction('ReadAsset', 'asset1');
 			console.log(`*** Result: ${prettyJSONString(result.toString())}`);
+   			*/
 		} finally {
 			// Disconnect from the gateway when the application is closing
 			// This will close all connections to the network
