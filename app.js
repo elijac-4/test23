@@ -63,6 +63,14 @@ async function main() {
 			// Get the contract from the network.
 			const contract = network.getContract(chaincodeName);
 
+
+			let result = await contract.submitTransaction('CreateTransaction', 'mydata', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8', 'k9');
+			console.log('*** Result: committed');
+			
+			if (`${result}` !== '') {
+				console.log(`*** Result: ${prettyJSONString(result.toString())}`);
+			}
+			
 			/*
 			// Initialize a set of asset data on the channel using the chaincode 'InitLedger' function.
 			// This type of transaction would only be run once by an application the first time it was started after it
