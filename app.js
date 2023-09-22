@@ -44,26 +44,35 @@ async function main() {
 		// Create a new gateway instance for interacting with the fabric network.
 		// In a real application this would be done as the backend server session is setup for
 		// a user that has been verified.
+
+		console.log("\nCreating Gateway\n");
 		const gateway = new Gateway();
+		console.log("\nGateway Created\n");
 
 		try {
 			// setup the gateway instance
 			// The user will now be able to create connections to the fabric network and be able to
 			// submit transactions and query. All transactions submitted by this gateway will be
 			// signed by this user using the credentials stored in the wallet.
+			console.log("\nConnecting Gateway\n");
 			await gateway.connect(ccp, {
 				wallet,
 				identity: org1UserId,
 				discovery: { enabled: true, asLocalhost: asLocalHost } // using asLocalhost as this gateway is using a fabric network deployed locally
 			});
+			console.log("\nGateway Connected\n");
 
 			// Build a network instance based on the channel where the smart contract is deployed
+			console.log(`getNetwork(${channelName} started`);
 			const network = await gateway.getNetwork(channelName);
-
+			console.log(`getNetwork(${channelName} finished`);
+			
 			// Get the contract from the network.
+			console.log(`getContract(${channelName} started`);
 			const contract = network.getContract(chaincodeName);
+			console.log(`getContract(${channelName} finished`);
 
-
+			console.log(`submitting transaction...`);
 			let result = await contract.submitTransaction('CreateTransaction', 'mydata', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8', 'k9');
 			console.log('*** Result: committed');
 			
